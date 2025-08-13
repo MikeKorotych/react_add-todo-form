@@ -30,11 +30,14 @@ export const App = () => {
       return;
     }
 
+    const user = usersFromServer.find(u => u.id === userSelect);
+
     const newTodo = {
       id: todos.length > 0 ? Math.max(...todos.map(t => t.id)) + 1 : 1,
       title: titleInput.trim(),
       completed: false,
       userId: userSelect,
+      user: user,
     };
 
     setTodos([...todos, newTodo]);
